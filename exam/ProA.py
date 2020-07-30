@@ -1,4 +1,4 @@
-import requests
+﻿import requests
 import re
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -22,7 +22,7 @@ for div in list:
         low_price = '暂无'
         high_price = '暂无'
     else:
-        low_price = re.split('-',price)[0]
+        low_price = re.split('-',price)[0]+'万'
         high_price = re.split('-',price)[1]
     #取图片地址
     img_ = div.find(name='img').get('src')
