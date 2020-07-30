@@ -1,4 +1,4 @@
-﻿import requests
+import requests
 import re
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -25,10 +25,10 @@ for div in list:
         low_price = re.split('-',price)[0]+'万'
         high_price = re.split('-',price)[1]
     #取图片地址
-    img_ = div.find(name='img').get('src')
+    img_ = 'http:'+div.find(name='img').get('src')
     #装入df中
     temp['car_model'],temp['low_price'],temp['high_price'],temp['photo'] = name,low_price,high_price,img_
     df = df.append(temp,ignore_index = True)
     #print(price,low_price,high_price)
-#print(df)
+print(df)
 df.to_csv('./result.csv',index = False,encoding='utf_8_sig')
